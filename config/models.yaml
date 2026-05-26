@@ -1,0 +1,76 @@
+modelscope:
+  base_url: https://api-inference.modelscope.cn/v1
+  token_env: MODELSCOPE_TOKEN
+
+defaults:
+  daily_limit: 50
+  timeout_seconds: 90
+  cooldown_seconds: 300
+  detail: medium
+
+models:
+  - id: Qwen/Qwen3-VL-8B-Instruct
+    name: qwen3-vl-8b-instruct
+    enabled: true
+    priority: 1
+    daily_limit: 50
+    timeout_seconds: 90
+    cooldown_seconds: 300
+    stream: true
+    supports_image_url: true
+    supports_base64: true
+
+  - id: Qwen/Qwen3.5-35B-A3B
+    name: qwen3.5-35b-a3b
+    enabled: true
+    priority: 3
+    daily_limit: 50
+    timeout_seconds: 90
+    cooldown_seconds: 300
+    stream: true
+    supports_image_url: true
+    supports_base64: true
+
+  - id: Qwen/Qwen3.5-27B
+    name: qwen3.5-27b
+    enabled: true
+    priority: 4
+    daily_limit: 50
+    timeout_seconds: 90
+    cooldown_seconds: 300
+    stream: true
+    supports_image_url: true
+    supports_base64: true
+
+  - id: Qwen/Qwen3.5-397B-A17B
+    name: qwen3.5-397b-a17b
+    enabled: true
+    priority: 5
+    daily_limit: 50
+    timeout_seconds: 120
+    cooldown_seconds: 300
+    stream: true
+    supports_image_url: true
+    supports_base64: true
+
+  - id: Qwen/Qwen3.5-122B-A10B
+    name: qwen3.5-122b-a10b
+    enabled: true
+    priority: 6
+    daily_limit: 50
+    timeout_seconds: 120
+    cooldown_seconds: 300
+    stream: true
+    supports_image_url: true
+    supports_base64: true
+
+  - id: moonshotai/Kimi-K2.5
+    name: kimi-k2.5
+    enabled: true
+    priority: 2
+    daily_limit: 50
+    timeout_seconds: 120
+    cooldown_seconds: 300
+    stream: true
+    supports_image_url: true
+    supports_base64: true
