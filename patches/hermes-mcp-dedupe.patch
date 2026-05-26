@@ -1,0 +1,26 @@
+--- a/tools/mcp_tool.py
++++ b/tools/mcp_tool.py
+@@
+-            structured = getattr(result, "structuredContent", None)
+-            if structured is not None:
+-                if text_result:
+-                    return json.dumps({
+-                        "result": text_result,
+-                        "structuredContent": structured,
+-                    }, ensure_ascii=False)
+-                return json.dumps({"result": structured}, ensure_ascii=False)
+-            return json.dumps({"result": text_result}, ensure_ascii=False)
++            structured = getattr(result, "structuredContent", None)
++            if structured is not None:
++                # FastMCP string-returning tools often expose the same payload twice:
++                # once as text content and once as structuredContent={"result": text}.
++                # Keep only one copy so large MCP outputs do not double the model context.
++                if isinstance(structured, dict) and structured.get("result") == text_result:
++                    return json.dumps({"result": text_result}, ensure_ascii=False)
++                if text_result:
++                    return json.dumps({
++                        "result": text_result,
++                        "structuredContent": structured,
++                    }, ensure_ascii=False)
++                return json.dumps({"result": structured}, ensure_ascii=False)
++            return json.dumps({"result": text_result}, ensure_ascii=False)

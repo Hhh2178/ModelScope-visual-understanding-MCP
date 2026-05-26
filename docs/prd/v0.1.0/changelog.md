@@ -21,3 +21,4 @@
 - Added smoke test module that reads `MODELSCOPE_TOKEN` from the environment and redacts token-like strings from output.
 - Added streaming response support for ModelScope chat completions.
 - Verified real image URL smoke tests against `Qwen/Qwen3-VL-8B-Instruct` and `Qwen/Qwen3.5-35B-A3B`.
+- Added Hermes installation notes and a narrow MCP result dedupe patch for runtimes that duplicate `result` into `structuredContent.result`.

@@ -73,6 +73,8 @@ The registered tool name in Hermes is typically:
 mcp_modelscope_vision_analyze_image
 ```
 
+For a more complete runtime install checklist, see [docs/hermes-install.md](docs/hermes-install.md).
+
 ## MCP Tool
 
 ### `analyze_image`
@@ -122,6 +124,8 @@ prompts/vision_reverse_prompt.zh.md
 Current prompt size is about `2,038` characters. It is sent to the ModelScope vision model. It does not directly consume the downstream reasoning model context unless you pass the prompt itself onward.
 
 The downstream context cost mainly comes from the returned `deepseek_context` and JSON result. This project returns a JSON string instead of structured MCP content to avoid duplicating the same payload in clients that include both text content and `structuredContent`.
+
+If your Hermes/FastMCP version still duplicates `result` into `structuredContent.result`, see [patches/hermes-mcp-dedupe.patch](patches/hermes-mcp-dedupe.patch).
 
 ## Image Size Handling
 
